@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PatiBul Destek | Ticket Yönetim Paneli</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <span class="logo-text">PatiBul</span>
+        <div class="mavi-tik"></div>
+        <span class="badge">Resmî Destek Sistemi</span>
+      </div>
+      <div class="ticket-badge">Ticket Yönetim Paneli v1.0</div>
+    </div>
+
+    <div class="two-columns">
+      <!-- SOL FORM -->
+      <div class="form-panel">
+        <h2>Yeni Destek Talebi</h2>
+        
+        <div class="form-group">
+          <label>Alıcı Adı / Soyadı</label>
+          <input type="text" id="aliciAdi" placeholder="Örn: Mira Aslı">
+        </div>
+        
+        <div class="form-group">
+          <label>Alıcı E-posta Adresi</label>
+          <input type="email" id="aliciEmail" placeholder="ornek@email.com">
+        </div>
+        
+        <div class="form-group">
+          <label>Mail Konusu (isteğe bağlı)</label>
+          <input type="text" id="konu" placeholder="Boş bırakırsanız otomatik oluşur">
+        </div>
+        
+        <div class="form-group">
+          <label>HTML Mail İçeriği</label>
+          <textarea id="htmlContent" rows="12" placeholder="HTML kodunuzu buraya yapıştırın..."></textarea>
+          <div class="placeholder-hint">
+            Kullanabileceğiniz değişkenler:<br>
+            {{TALEP_NO}} → Otomatik ticket numarası<br>
+            {{MÜŞTERİ_ADI}} → Alıcı adı<br>
+            {{REF_NUM}} → Referans numarası
+          </div>
+        </div>
+        
+        <button id="gonderBtn" class="send-btn"> Mail Gönder</button>
+        <div id="sonucMesaji" class="result-message"></div>
+      </div>
+
+      <!-- SAĞ ÖNİZLEME -->
+      <div class="preview-panel">
+        <h2>Önizleme & Hazır Şablonlar</h2>
+        
+        <div class="template-buttons">
+          <button class="template-btn" data-template="yetkisiz">Yetkisiz Erişim</button>
+          <button class="template-btn" data-template="genel">Genel Destek</button>
+          <button class="template-btn" data-template="sifre">Şifre Sıfırlama</button>
+        </div>
+        
+        <div class="preview-container">
+          <div class="preview-header">
+            <span>Mail Önizleme</span>
+            <span class="auto-ticket">Ticket No: <span id="onizlemeTicket">PD-000000-0000</span></span>
+          </div>
+          <div id="onizleme" class="preview-content">
+            HTML içeriğiniz burada önizlenecek...
+          </div>
+        </div>
+        
+        <div class="info-box">
+          <div class="info-title">Nasıl Çalışır?</div>
+          <ul>
+            <li>Alıcı bilgilerini doldurun</li>
+            <li>HTML kodunuzu yapıştırın veya hazır şablon seçin</li>
+            <li>Mail gönder butonuna tıklayın</li>
+            <li>Sistem otomatik ticket numarası üretir</li>
+            <li>Ticket numarası {{TALEP_NO}} değişkenine eklenir</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
